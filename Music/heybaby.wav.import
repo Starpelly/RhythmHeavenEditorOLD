@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/heybaby.wav-2d54686d479d0b59602b6bd4caf3fc5e.sample"
+
+[deps]
+
+source_file="res://Music/heybaby.wav"
+dest_files=[ "res://.import/heybaby.wav-2d54686d479d0b59602b6bd4caf3fc5e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -25.0
+margin_top = -37.0
+margin_right = 2730.0
+margin_bottom = 1050.0
+rect_scale = Vector2( 0.497191, 0.733863 )
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+margin_left = 466.0
+margin_top = -37.0
+margin_right = 2168.0
+margin_bottom = 1050.0
+rect_scale = Vector2( 0.497191, 0.733863 )
+color = Color( 0.392157, 0.701961, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

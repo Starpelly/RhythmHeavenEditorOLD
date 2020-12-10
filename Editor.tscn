@@ -1,0 +1,539 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/Editor.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Conductor.gd" type="Script" id=2]
+[ext_resource path="res://Music/heybaby.wav" type="AudioStream" id=3]
+[ext_resource path="res://Music/cowbell.wav" type="AudioStream" id=4]
+[ext_resource path="res://TestSceneGame.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/editor_timelinemarker.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/rodin.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scripts/CurrentTimeMarker.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/editor_playbutton.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/editor_recordbutton.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/editor_metronomebutton.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/editor_playtestbutton.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.262745, 0.262745, 0.262745, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.121569, 0.121569, 0.121569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.172549, 0.172549, 0.172549, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 3 )
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/styles/grabber = null
+HScrollBar/styles/grabber_highlight = null
+HScrollBar/styles/grabber_pressed = null
+HScrollBar/styles/scroll = SubResource( 4 )
+HScrollBar/styles/scroll_focus = null
+LineEdit/colors/clear_button_color = Color( 0.88, 0.88, 0.88, 1 )
+LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
+LineEdit/colors/cursor_color = Color( 0.94, 0.94, 0.94, 1 )
+LineEdit/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color_uneditable = Color( 0.88, 0.88, 0.88, 0.5 )
+LineEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
+LineEdit/constants/minimum_spaces = 12
+LineEdit/fonts/font = null
+LineEdit/icons/clear = null
+LineEdit/styles/focus = null
+LineEdit/styles/normal = null
+LineEdit/styles/read_only = null
+SpinBox/icons/updown = null
+TextEdit/colors/background_color = Color( 0, 0, 0, 0 )
+TextEdit/colors/bookmark_color = Color( 0.08, 0.49, 0.98, 1 )
+TextEdit/colors/brace_mismatch_color = Color( 1, 0.2, 0.2, 1 )
+TextEdit/colors/breakpoint_color = Color( 0.8, 0.8, 0.4, 0.2 )
+TextEdit/colors/caret_background_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/caret_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/code_folding_color = Color( 0.8, 0.8, 0.8, 0.8 )
+TextEdit/colors/completion_background_color = Color( 0.17, 0.16, 0.2, 1 )
+TextEdit/colors/completion_existing_color = Color( 0.87, 0.87, 0.87, 0.13 )
+TextEdit/colors/completion_font_color = Color( 0.67, 0.67, 0.67, 1 )
+TextEdit/colors/completion_scroll_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/completion_selected_color = Color( 0.26, 0.26, 0.27, 1 )
+TextEdit/colors/current_line_color = Color( 0.25, 0.25, 0.26, 0.8 )
+TextEdit/colors/executing_line_color = Color( 0.2, 0.8, 0.2, 0.4 )
+TextEdit/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/font_color_readonly = Color( 0.88, 0.88, 0.88, 0.5 )
+TextEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+TextEdit/colors/function_color = Color( 0.4, 0.64, 0.81, 1 )
+TextEdit/colors/line_number_color = Color( 0.67, 0.67, 0.67, 0.4 )
+TextEdit/colors/mark_color = Color( 1, 0.4, 0.4, 0.4 )
+TextEdit/colors/member_variable_color = Color( 0.9, 0.31, 0.35, 1 )
+TextEdit/colors/number_color = Color( 0.92, 0.58, 0.2, 1 )
+TextEdit/colors/safe_line_number_color = Color( 0.67, 0.78, 0.67, 0.6 )
+TextEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
+TextEdit/colors/symbol_color = Color( 0.94, 0.94, 0.94, 1 )
+TextEdit/colors/word_highlighted_color = Color( 0.8, 0.9, 0.9, 0.15 )
+TextEdit/constants/completion_lines = 7
+TextEdit/constants/completion_max_width = 50
+TextEdit/constants/completion_scroll_width = 3
+TextEdit/constants/line_spacing = 4
+TextEdit/fonts/font = null
+TextEdit/icons/fold = null
+TextEdit/icons/folded = null
+TextEdit/icons/space = null
+TextEdit/icons/tab = null
+TextEdit/styles/completion = null
+TextEdit/styles/focus = null
+TextEdit/styles/normal = null
+TextEdit/styles/read_only = null
+
+[sub_resource type="DynamicFont" id=7]
+size = 13
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 25
+font_data = ExtResource( 7 )
+
+[node name="Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = 204.287
+margin_right = 1034.29
+margin_bottom = 464.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1280, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Camera2D" type="Camera2D" parent="ViewportContainer/Viewport"]
+
+[node name="Node2D" parent="ViewportContainer/Viewport" instance=ExtResource( 5 )]
+
+[node name="TimelineBase" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TransparentThing" type="ColorRect" parent="TimelineBase"]
+margin_top = 464.0
+margin_right = 1280.0
+margin_bottom = 720.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.65098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayersBase" type="ColorRect" parent="TimelineBase"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 523.0
+margin_right = -1130.0
+margin_bottom = 454.0
+mouse_filter = 2
+color = Color( 0.160784, 0.160784, 0.160784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SongTimeBase" type="ColorRect" parent="TimelineBase"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 523.0
+margin_bottom = -178.0
+mouse_filter = 2
+color = Color( 0.219608, 0.219608, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Song Position" type="RichTextLabel" parent="TimelineBase/SongTimeBase"]
+anchor_right = 0.172
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_right = 319.84
+custom_fonts/normal_font = SubResource( 7 )
+text = "Song Position:"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentTimeMarker" type="Sprite" parent="TimelineBase/SongTimeBase"]
+visible = false
+position = Vector2( 150, 115.159 )
+scale = Vector2( 0.32, 0.32 )
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="ScrollBar" type="HScrollBar" parent="TimelineBase/SongTimeBase"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = -19.0
+mouse_default_cursor_shape = 2
+max_value = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentTimeMarkerOld" type="ColorRect" parent="TimelineBase/SongTimeBase"]
+visible = false
+margin_left = 150.0
+margin_right = 151.0
+margin_bottom = 213.0
+
+[node name="SongPathText" type="RichTextLabel" parent="TimelineBase"]
+margin_left = 8.0
+margin_top = 438.0
+margin_right = 1280.0
+margin_bottom = 464.0
+custom_fonts/normal_font = SubResource( 8 )
+text = "Song Path:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimelineMenuBase" type="ColorRect" parent="TimelineBase"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 464.0
+margin_bottom = -197.0
+mouse_filter = 2
+mouse_default_cursor_shape = 9
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButtons" type="Control" parent="TimelineBase/TimelineMenuBase"]
+margin_right = 1280.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TimelineBase/TimelineMenuBase/BackButtons"]
+margin_left = 14.4409
+margin_top = 7.11328
+margin_right = 54.4409
+margin_bottom = 47.1133
+color = Color( 0.305882, 0.305882, 0.305882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="TimelineBase/TimelineMenuBase/BackButtons"]
+margin_left = 62.4409
+margin_top = 7.11328
+margin_right = 102.441
+margin_bottom = 47.1133
+color = Color( 0.305882, 0.305882, 0.305882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="TimelineBase/TimelineMenuBase/BackButtons"]
+margin_left = 109.64
+margin_top = 7.11328
+margin_right = 149.64
+margin_bottom = 47.1133
+rect_pivot_offset = Vector2( 14, 20 )
+color = Color( 0.305882, 0.305882, 0.305882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="TimelineBase/TimelineMenuBase/BackButtons"]
+margin_left = 157.631
+margin_top = 6.77206
+margin_right = 197.631
+margin_bottom = 46.7721
+rect_pivot_offset = Vector2( 14, 20 )
+color = Color( 0.305882, 0.305882, 0.305882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="TextureButton" parent="TimelineBase/TimelineMenuBase"]
+margin_left = 13.7016
+margin_top = 6.77206
+margin_right = 53.7016
+margin_bottom = 46.7721
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Record" type="TextureButton" parent="TimelineBase/TimelineMenuBase"]
+margin_left = 62.4409
+margin_top = 6.77206
+margin_right = 102.441
+margin_bottom = 46.7721
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Metronome" type="TextureButton" parent="TimelineBase/TimelineMenuBase"]
+margin_left = 109.64
+margin_top = 7.11328
+margin_right = 149.64
+margin_bottom = 47.1133
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayTest" type="TextureButton" parent="TimelineBase/TimelineMenuBase"]
+margin_left = 157.631
+margin_top = 7.11328
+margin_right = 197.631
+margin_bottom = 47.1133
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MousePos" type="RichTextLabel" parent="TimelineBase/TimelineMenuBase"]
+margin_left = 642.036
+margin_top = 8.67224
+margin_right = 850.036
+margin_bottom = 67.6722
+text = "Mouse Pos: ( )x ( )y"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeSlider" type="HScrollBar" parent="TimelineBase/TimelineMenuBase"]
+margin_left = 245.113
+margin_top = 36.4597
+margin_right = 558.113
+margin_bottom = 48.4597
+mouse_default_cursor_shape = 2
+min_value = -65.0
+max_value = 3.0
+allow_lesser = true
+
+[node name="ResetVol" type="Button" parent="TimelineBase/TimelineMenuBase/VolumeSlider"]
+margin_left = 321.673
+margin_top = -7.99997
+margin_right = 369.673
+margin_bottom = 12.0
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="TimelineBase/TimelineMenuBase/VolumeSlider"]
+margin_top = -23.0
+margin_right = 313.0
+margin_bottom = -3.0
+text = "Volume: 0"
+scroll_active = false
+
+[node name="TopButtons" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="TopButtons"]
+margin_left = 1148.68
+margin_top = 4.65387
+margin_right = 1274.68
+margin_bottom = 40.6539
+mouse_default_cursor_shape = 2
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select Song" type="Button" parent="TopButtons"]
+margin_left = 1014.53
+margin_top = 4.65387
+margin_right = 1140.53
+margin_bottom = 40.6539
+mouse_default_cursor_shape = 2
+text = "Select Song"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="ToolButton" parent="TopButtons"]
+margin_left = 880.251
+margin_top = 5.0
+margin_right = 1006.25
+margin_bottom = 41.0
+mouse_default_cursor_shape = 2
+text = "Settings"
+flat = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="Button" parent="TopButtons"]
+modulate = Color( 0, 0.784314, 1, 1 )
+margin_left = 5.25
+margin_top = 4.90387
+margin_right = 131.25
+margin_bottom = 40.9039
+mouse_default_cursor_shape = 2
+text = "Help"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpPopupDialog" type="PopupDialog" parent="TopButtons"]
+visible = true
+modulate = Color( 0, 0.784314, 1, 1 )
+margin_left = 114.0
+margin_top = 72.0
+margin_right = 562.0
+margin_bottom = 381.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TopButtons/HelpPopupDialog"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 444.0
+margin_bottom = 307.0
+text = "Q: Why does this only support .wav and .ogg files?
+
+A. .mp3 isn't supported in the Godot Engine, also .mp3 is compressed. Meaning you would be better off just converting it in a free program like Audacity or Reaper."
+fit_content_height = true
+
+[node name="SelectSongDialogue" type="FileDialog" parent="TopButtons"]
+margin_left = 736.607
+margin_top = 68.1083
+margin_right = 1259.61
+margin_bottom = 451.108
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.ogg ; OGG Files", "*.wav ; Waveform Files" )
+current_dir = "/Users/Braedon/Documents/Godot/RHPlatinum"
+current_path = "/Users/Braedon/Documents/Godot/RHPlatinum/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Conductor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+script = ExtResource( 2 )
+bpm = 119.0
+
+[node name="Metronome" type="AudioStreamPlayer" parent="Conductor"]
+stream = ExtResource( 4 )
+
+[node name="SettingsBox" type="ColorRect" parent="."]
+anchor_bottom = 1.0
+margin_left = -434.38
+margin_right = -14.3799
+mouse_filter = 2
+color = Color( 0.160784, 0.160784, 0.160784, 0.705882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BPMBox" type="SpinBox" parent="SettingsBox"]
+margin_left = 102.0
+margin_top = 20.0
+margin_right = 302.0
+margin_bottom = 68.0
+max_value = 500.0
+value = 119.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BPMLabel" type="RichTextLabel" parent="SettingsBox"]
+margin_left = 22.0
+margin_top = 30.0
+margin_right = 97.0
+margin_bottom = 61.0
+custom_fonts/normal_font = SubResource( 9 )
+text = "BPM:"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="TimelineBase/TimelineMenuBase/Play" to="." method="onPlayBTNPressed"]
+[connection signal="pressed" from="TimelineBase/TimelineMenuBase/Metronome" to="." method="MetronomeButtonPressed"]
+[connection signal="scrolling" from="TimelineBase/TimelineMenuBase/VolumeSlider" to="." method="onVolumeValueChanged"]
+[connection signal="pressed" from="TimelineBase/TimelineMenuBase/VolumeSlider/ResetVol" to="." method="onResetVolBTNPressed"]
+[connection signal="pressed" from="TopButtons/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="TopButtons/Select Song" to="." method="onSelectSongPressed"]
+[connection signal="pressed" from="TopButtons/Settings" to="." method="onSettingsPressed"]
+[connection signal="pressed" from="TopButtons/Help" to="." method="_on_Help_pressed"]
+[connection signal="file_selected" from="TopButtons/SelectSongDialogue" to="." method="onSelectSongDialogueFileSelected"]
+[connection signal="value_changed" from="SettingsBox/BPMBox" to="." method="_on_BPMBox_value_changed"]
