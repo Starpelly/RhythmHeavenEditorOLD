@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TheClappyTrio.wav-6e7ee82431816d394263a27e44a77630.sample"
+
+[deps]
+
+source_file="res://Music/TheClappyTrio.wav"
+dest_files=[ "res://.import/TheClappyTrio.wav-6e7ee82431816d394263a27e44a77630.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

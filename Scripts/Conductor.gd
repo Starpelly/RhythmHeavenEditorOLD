@@ -36,6 +36,9 @@ var time_delay
 var metronomeEnabled = false
 
 func _ready():
+	initConductor()
+
+func initConductor():
 	sec_per_beat = 60.0 / bpm
 	sec_per_fbeat = 15.0 / bpm
 	interval = interval_sec*stream.mix_rate
@@ -46,7 +49,6 @@ func _ready():
 
 func _process(_delta):
 	
-	bpm = bpm
 	sec_per_beat = 60.0 / bpm
 	
 	if playing:

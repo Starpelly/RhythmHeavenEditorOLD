@@ -1,17 +1,17 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Editor.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Conductor.gd" type="Script" id=2]
-[ext_resource path="res://Music/heybaby.wav" type="AudioStream" id=3]
-[ext_resource path="res://Music/cowbell.wav" type="AudioStream" id=4]
+[ext_resource path="res://Music/TheClappyTrio.wav" type="AudioStream" id=3]
+[ext_resource path="res://SFX/metronome.ogg" type="AudioStream" id=4]
 [ext_resource path="res://TestSceneGame.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/editor_timelinemarker.png" type="Texture" id=6]
+[ext_resource path="res://timelinemarker.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/rodin.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Scripts/CurrentTimeMarker.gd" type="Script" id=8]
-[ext_resource path="res://Sprites/editor_playbutton.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/editor_recordbutton.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/editor_metronomebutton.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/editor_playtestbutton.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Editor/editor_playbutton.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Editor/editor_recordbutton.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Editor/editor_metronomebutton.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Editor/editor_playtestbutton.png" type="Texture" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.262745, 0.262745, 0.262745, 1 )
@@ -123,6 +123,10 @@ font_data = ExtResource( 7 )
 size = 25
 font_data = ExtResource( 7 )
 
+[sub_resource type="DynamicFont" id=10]
+size = 34
+font_data = ExtResource( 7 )
+
 [node name="Editor" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -146,6 +150,10 @@ __meta__ = {
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 216.0
+margin_right = 216.0
+margin_bottom = 6.10352e-05
+rect_scale = Vector2( 0.645, 0.645 )
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -166,27 +174,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TransparentThing" type="ColorRect" parent="TimelineBase"]
-margin_top = 464.0
-margin_right = 1280.0
-margin_bottom = 720.0
+[node name="TimelineBase" type="ColorRect" parent="TimelineBase"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 542.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0.65098 )
+color = Color( 0.317647, 0.317647, 0.317647, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LayersBase" type="ColorRect" parent="TimelineBase"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 523.0
-margin_right = -1130.0
-margin_bottom = 454.0
-mouse_filter = 2
-color = Color( 0.160784, 0.160784, 0.160784, 1 )
+[node name="GridContainer" type="GridContainer" parent="TimelineBase/TimelineBase"]
+margin_right = 1280.0
+margin_bottom = 178.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -199,6 +203,7 @@ margin_bottom = -178.0
 mouse_filter = 2
 color = Color( 0.219608, 0.219608, 0.219608, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -207,6 +212,7 @@ anchor_right = 0.172
 anchor_bottom = 1.0
 margin_left = 22.0
 margin_right = 319.84
+hint_tooltip = "The current time of the song."
 custom_fonts/normal_font = SubResource( 7 )
 text = "Song Position:"
 scroll_active = false
@@ -317,6 +323,7 @@ margin_left = 13.7016
 margin_top = 6.77206
 margin_right = 53.7016
 margin_bottom = 46.7721
+hint_tooltip = "Plays/Pauses the timeline."
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 9 )
 __meta__ = {
@@ -328,6 +335,7 @@ margin_left = 62.4409
 margin_top = 6.77206
 margin_right = 102.441
 margin_bottom = 46.7721
+hint_tooltip = "Records Input to place events."
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
 __meta__ = {
@@ -339,6 +347,7 @@ margin_left = 109.64
 margin_top = 7.11328
 margin_right = 149.64
 margin_bottom = 47.1133
+hint_tooltip = "Basic metronome to help rhythm."
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 11 )
 __meta__ = {
@@ -350,6 +359,7 @@ margin_left = 157.631
 margin_top = 7.11328
 margin_right = 197.631
 margin_bottom = 47.1133
+hint_tooltip = "Play test the level."
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 12 )
 __meta__ = {
@@ -361,6 +371,7 @@ margin_left = 642.036
 margin_top = 8.67224
 margin_right = 850.036
 margin_bottom = 67.6722
+hint_tooltip = "Your current mouse position."
 text = "Mouse Pos: ( )x ( )y"
 scroll_active = false
 __meta__ = {
@@ -382,6 +393,8 @@ margin_left = 321.673
 margin_top = -7.99997
 margin_right = 369.673
 margin_bottom = 12.0
+hint_tooltip = "Resets the volume back to 0."
+mouse_default_cursor_shape = 2
 text = "Reset"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -450,7 +463,6 @@ __meta__ = {
 }
 
 [node name="HelpPopupDialog" type="PopupDialog" parent="TopButtons"]
-visible = true
 modulate = Color( 0, 0.784314, 1, 1 )
 margin_left = 114.0
 margin_top = 72.0
@@ -490,7 +502,7 @@ __meta__ = {
 [node name="Conductor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 script = ExtResource( 2 )
-bpm = 119.0
+bpm = 103.0
 
 [node name="Metronome" type="AudioStreamPlayer" parent="Conductor"]
 stream = ExtResource( 4 )
@@ -527,7 +539,18 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ErrorText" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color( 1, 0.380392, 0.380392, 1 )
+margin_left = 8.0
+margin_top = 657.0
+margin_right = 1268.0
+margin_bottom = 708.0
+custom_fonts/normal_font = SubResource( 10 )
+text = "Sample Text!"
 [connection signal="pressed" from="TimelineBase/TimelineMenuBase/Play" to="." method="onPlayBTNPressed"]
+[connection signal="pressed" from="TimelineBase/TimelineMenuBase/Record" to="." method="_on_Record_pressed"]
 [connection signal="pressed" from="TimelineBase/TimelineMenuBase/Metronome" to="." method="MetronomeButtonPressed"]
 [connection signal="scrolling" from="TimelineBase/TimelineMenuBase/VolumeSlider" to="." method="onVolumeValueChanged"]
 [connection signal="pressed" from="TimelineBase/TimelineMenuBase/VolumeSlider/ResetVol" to="." method="onResetVolBTNPressed"]
@@ -536,4 +559,7 @@ __meta__ = {
 [connection signal="pressed" from="TopButtons/Settings" to="." method="onSettingsPressed"]
 [connection signal="pressed" from="TopButtons/Help" to="." method="_on_Help_pressed"]
 [connection signal="file_selected" from="TopButtons/SelectSongDialogue" to="." method="onSelectSongDialogueFileSelected"]
+[connection signal="beat" from="Conductor" to="." method="_on_Conductor_beat"]
 [connection signal="value_changed" from="SettingsBox/BPMBox" to="." method="_on_BPMBox_value_changed"]
+
+[editable path="ViewportContainer/Viewport/Node2D"]

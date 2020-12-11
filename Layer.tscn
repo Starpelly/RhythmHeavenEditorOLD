@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="Layer" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 40.0
+color = Color( 0.00392157, 0.121569, 0.207843, 0.564706 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mute" type="Button" parent="."]
+margin_right = 102.0
+margin_bottom = 40.0
+text = "Mute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Delete" type="Button" parent="."]
+margin_left = 102.441
+margin_right = 150.441
+margin_bottom = 40.0
+text = "Delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}

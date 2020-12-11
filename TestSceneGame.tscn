@@ -1,26 +1,543 @@
-[gd_scene format=2]
+[gd_scene load_steps=16 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_stagever1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_legs.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_wig.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_faces.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_torso.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_handidle.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_shadow.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_tail.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/RemixGame.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/clappytrioref.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_handclap.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/clappytrio_handclapswipe.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Games/TheClappyTrio/triotiming!.png" type="Texture" id=13]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -25.0
-margin_top = -37.0
-margin_right = 2730.0
-margin_bottom = 1050.0
-rect_scale = Vector2( 0.497191, 0.733863 )
-color = Color( 0.129412, 0.129412, 0.129412, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
+[sub_resource type="Animation" id=2]
+resource_name = "ClappyTrioBop"
+length = 0.25
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("clappytrioref:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 28, 29, 32 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Clappy/clappytrio_faces:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 597.739, 414.496 ), Vector2( 597.739, 414.496 ), Vector2( 596.95, 408.452 ), Vector2( 596.95, 408.452 ), Vector2( 596.95, 406.324 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Clappy/clappytrio_wig:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 596.631, 401.446 ), Vector2( 596.631, 401.446 ), Vector2( 595.448, 403.023 ), Vector2( 595.974, 401.709 ), Vector2( 595.974, 401.709 ), Vector2( 595.974, 399.081 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Clappy/clappytrio_wig:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.915675, 1.01341 ), Vector2( 0.915675, 1.01341 ), Vector2( 0.929402, 0.992552 ), Vector2( 1.01177, 0.925814 ), Vector2( 1.01177, 0.925814 ), Vector2( 0.972546, 0.938328 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Clappy/clappytrio_torso:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 593.703, 443.405 ), Vector2( 593.703, 443.405 ), Vector2( 593.703, 441.177 ), Vector2( 593.703, 441.177 ), Vector2( 592.868, 439.785 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Clappy/clappytrio_legs:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 593.165, 464.131 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Clappy/clappytrio_legs:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Clappy/clappytrio_tail:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 568.679, 448.58 ), Vector2( 568.679, 448.58 ), Vector2( 569.096, 453.87 ), Vector2( 571.602, 461.526 ), Vector2( 571.602, 461.526 ), Vector2( 571.045, 458.603 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Clappy/clappytrio_tail:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 14.8252, 14.8252, 10.4834, -3.75468, -3.75468, -0.842491 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Clappy/clappytrio_handidle:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 558.177, 417.131 ), Vector2( 558.177, 417.131 ), Vector2( 552.72, 414.65 ), Vector2( 552.72, 414.65 ), Vector2( 556.193, 414.526 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Clappy/clappytrio_handidle:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Clappy/clappytrio_handidle:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Clappy/clappytrio_handidle:hframes")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Clappy/clappytrio_handidle:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.13356, 0.965391 ), Vector2( 1.13356, 0.965391 ), Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Clappy/clappytrio_handidle2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 630.24, 421.263 ), Vector2( 630.24, 421.263 ), Vector2( 624.287, 419.527 ), Vector2( 624.287, 419.527 ), Vector2( 621.807, 419.527 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Clappy/clappytrio_handidle2:frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 2 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Clappy/clappytrio_handidle2:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.0833333, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.17171, 1.02884 ), Vector2( 1.17171, 1.02884 ), Vector2( 0.98728, 1.02884 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Clappy/clappytrio_handidle2:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Clappy/clappytrio_faces:frame")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[sub_resource type="Animation" id=1]
+resource_name = "ClappyTrioClap"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Clappy/clappytrio_faces:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 594.022, 392.199 ), Vector2( 594.022, 392.199 ), Vector2( 594.022, 399.278 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Clappy/clappytrio_faces:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Clappy/clappytrio_handidle:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ), ExtResource( 11 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Clappy/clappytrio_handidle:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 3 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("clappytrioref:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.05, 0.0833333, 0.1, 0.116667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 10, 11, 14, 15, 16 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Clappy/clappytrio_handidle:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Clappy/clappytrio_handidle:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 593.646, 375.957 ), Vector2( 593.646, 375.957 ), Vector2( 593.056, 383.036 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Clappy/clappytrio_handidle2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Clappy/clappytrio_handclapswipe:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.0333333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Clappy/clappytrio_torso:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 592.126, 432.43 ), Vector2( 592.126, 432.43 ), Vector2( 592.126, 435.38 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Clappy/clappytrio_legs:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Clappy/clappytrio_legs:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.0666667 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 592.191, 464.409 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Clappy/clappytrio_wig:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 591.769, 392.643 ), Vector2( 591.769, 392.643 ), Vector2( 591.769, 389.988 ), Vector2( 591.769, 384.089 ), Vector2( 591.769, 384.089 ), Vector2( 591.769, 388.808 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Clappy/clappytrio_wig:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1.06555 ), Vector2( 1, 1.06555 ), Vector2( 1, 1.01405 ), Vector2( 1, 0.995319 ), Vector2( 1, 0.995319 ), Vector2( 1, 1.02341 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Clappy/clappytrio_tail:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 573.968, 459.438 ), Vector2( 573.968, 459.438 ), Vector2( 571.609, 460.028 ), Vector2( 569.249, 460.028 ), Vector2( 569.249, 460.028 ), Vector2( 568.659, 458.848 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Clappy/clappytrio_tail:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0333333, 0.05, 0.0666667, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -36.9, -36.9, -29.329, -25.4916, -25.4916, -13.1824 ]
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="BG" type="Node2D" parent="."]
+position = Vector2( 15.674, -0.514 )
+scale = Vector2( 0.978, 1.002 )
+
+[node name="clappytrio_stagever1" type="Sprite" parent="BG"]
+position = Vector2( 311.268, 360 )
+scale = Vector2( 1.57579, 1.57579 )
+texture = ExtResource( 1 )
+
+[node name="clappytrio_stagever2" type="Sprite" parent="BG"]
+position = Vector2( 966.302, 360 )
+rotation = 3.14159
+scale = Vector2( 1.576, -1.576 )
+texture = ExtResource( 1 )
+
+[node name="clappytrioref" type="Sprite" parent="."]
 visible = false
-margin_left = 466.0
-margin_top = -37.0
-margin_right = 2168.0
-margin_bottom = 1050.0
-rect_scale = Vector2( 0.497191, 0.733863 )
-color = Color( 0.392157, 0.701961, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+position = Vector2( 637.94, 360.855 )
+scale = Vector2( 3.34403, 3.31512 )
+z_index = -1
+texture = ExtResource( 10 )
+vframes = 8
+hframes = 9
+frame = 32
+
+[node name="triotiming!" type="Sprite" parent="."]
+position = Vector2( 631.35, 261.764 )
+scale = Vector2( 1.24032, 1.24032 )
+texture = ExtResource( 13 )
+
+[node name="clappytrio_shadow" type="Sprite" parent="."]
+position = Vector2( 415.811, 643.232 )
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 7 )
+
+[node name="Clappy" type="Node2D" parent="."]
+position = Vector2( -531.994, -127.552 )
+scale = Vector2( 1.6, 1.6 )
+
+[node name="clappytrio_tail" type="Sprite" parent="Clappy"]
+position = Vector2( 571.045, 458.603 )
+rotation = -0.0147042
+scale = Vector2( 1, 1 )
+texture = ExtResource( 8 )
+
+[node name="clappytrio_legs" type="Sprite" parent="Clappy"]
+position = Vector2( 593.165, 464.131 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="clappytrio_torso" type="Sprite" parent="Clappy"]
+position = Vector2( 592.868, 439.785 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="clappytrio_faces" type="Sprite" parent="Clappy"]
+position = Vector2( 596.95, 406.324 )
+texture = ExtResource( 4 )
+vframes = 2
+hframes = 3
+
+[node name="clappytrio_wig" type="Sprite" parent="Clappy"]
+position = Vector2( 595.974, 399.081 )
+scale = Vector2( 0.972546, 0.938328 )
+texture = ExtResource( 3 )
+
+[node name="clappytrio_handidle" type="Sprite" parent="Clappy"]
+position = Vector2( 556.193, 414.526 )
+texture = ExtResource( 6 )
+hframes = 4
+
+[node name="clappytrio_handidle2" type="Sprite" parent="Clappy"]
+position = Vector2( 621.807, 419.527 )
+scale = Vector2( 0.98728, 1.02884 )
+texture = ExtResource( 6 )
+hframes = 4
+frame = 2
+
+[node name="clappytrio_handclapswipe" type="Sprite" parent="Clappy"]
+visible = false
+position = Vector2( 567.036, 375.386 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="clappytrio_handclapswipe2" type="Sprite" parent="Clappy/clappytrio_handclapswipe"]
+position = Vector2( 55.473, 0 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ClappyTrioBop = SubResource( 2 )
+anims/ClappyTrioClap = SubResource( 1 )
